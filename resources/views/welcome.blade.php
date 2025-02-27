@@ -34,8 +34,8 @@
 <div class="overlay absolute inset-0 flex flex-col items-center justify-center text-center px-6 py-4">
 
     <!-- Titre du projet -->
-    <h1 class="text-4xl sm:text-5xl font-bold tracking-widest uppercase pink-text mb-6">
-        « Sorry I’m Late »
+    <h1 class="text-4xl sm:text-5xl font-bold uppercase pink-text mb-6">
+        "Sorry I’m Late"
     </h1>
 
     <!-- Présentation de l’artiste -->
