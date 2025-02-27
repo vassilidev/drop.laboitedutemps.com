@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>« Sorry I’m Late » | Tweezy</title>
+    <title>"Sorry I’m Late" | Tweezy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
@@ -13,13 +13,13 @@
             overflow: hidden;
         }
 
-        /* Vidéo toujours en fond */
+        /* Vidéo toujours en full screen */
         video {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             object-fit: cover;
             z-index: -1;
         }
@@ -41,7 +41,7 @@
             color: #FF79C6;
         }
 
-        /* Fix pour maintenir le compteur en ligne */
+        /* Ajustement du compte à rebours */
         .countdown-container {
             display: flex;
             justify-content: center;
@@ -55,8 +55,19 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 10px;
-            width: 70px;
+            width: 65px;
             text-align: center;
+        }
+
+        .countdown-item span {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .countdown-item .label {
+            font-size: 12px;
+            margin-top: 2px;
         }
     </style>
 </head>
@@ -100,20 +111,20 @@
     <!-- Compte à rebours -->
     <div id="countdown" class="countdown-container">
         <div class="countdown-item">
-            <span id="days" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm block">J</span>
+            <span id="days" class="text-2xl sm:text-3xl font-bold pink-text">00</span>
+            <span class="label">Jours</span>
         </div>
         <div class="countdown-item">
-            <span id="hours" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm block">H</span>
+            <span id="hours" class="text-2xl sm:text-3xl font-bold pink-text">00</span>
+            <span class="label">Heures</span>
         </div>
         <div class="countdown-item">
-            <span id="minutes" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm block">m</span>
+            <span id="minutes" class="text-2xl sm:text-3xl font-bold pink-text">00</span>
+            <span class="label">Minutes</span>
         </div>
         <div class="countdown-item">
-            <span id="seconds" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm block">s</span>
+            <span id="seconds" class="text-2xl sm:text-3xl font-bold pink-text">00</span>
+            <span class="label">Secondes</span>
         </div>
     </div>
 
