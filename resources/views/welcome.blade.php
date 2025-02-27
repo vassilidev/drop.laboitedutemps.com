@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorry I’m Late | Drop</title>
+    <title>Sorry I’m Late | Tweezy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Dégradé d’arrière-plan dynamique */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
         body {
-            background: linear-gradient(135deg, #1E1E2E, #3A3A6D, #7158E2);
-            background-size: 400% 400%;
-            animation: gradientBG 8s ease infinite;
+            font-family: 'Orbitron', sans-serif;
+            overflow: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen text-white p-6">
+<body class="relative flex items-center justify-center min-h-screen text-white">
+
+<!-- Video de fond -->
+<video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
+    <source src="{{ asset('video.mp4') }}" type="video/mp4">
+</video>
 
 <!-- Conteneur principal -->
-<div class="max-w-3xl w-full bg-opacity-20 bg-white backdrop-blur-md rounded-2xl p-8 shadow-lg text-center border border-white/20">
+<div class="overlay absolute inset-0 flex flex-col items-center justify-center text-center px-6">
 
-    <!-- Logo ou titre -->
-    <h1 class="text-4xl font-bold tracking-widest text-gray-100 uppercase mb-6">
-        SORRY I’M LATE
+    <!-- Titre du projet -->
+    <h1 class="text-5xl font-bold tracking-widest uppercase text-white mb-6">
+        Sorry I’m Late
     </h1>
 
-    <!-- Description -->
-    <p class="text-lg text-gray-300 leading-relaxed mb-6">
-        Une maison qui fusionne **design, mode et musique**.
-        Un mouvement culturel qui réunit les **artistes de tous horizons**,
-        et qui s’affirme comme une signature intemporelle.
+    <!-- Présentation de l’artiste -->
+    <p class="text-lg text-gray-300 max-w-xl leading-relaxed mb-8">
+        Tweezy, une énergie brute, une identité sonore unique. <br>
+        Entre flow tranchant et mélodies atmosphériques, <br>
+        ce projet fusionne l’essence du rap et l’empreinte du style. <br>
+        Un freestyle capté en studio. Un drop exclusif. <br>
+        Une vision.
     </p>
 
     <!-- Compte à rebours -->
-    <div id="countdown" class="grid grid-cols-4 gap-4 text-xl font-semibold">
+    <div id="countdown" class="flex space-x-6 text-2xl font-semibold">
         <div class="flex flex-col items-center p-4 bg-white/10 rounded-lg shadow-lg">
             <span id="days" class="text-5xl font-bold text-blue-400">00</span>
             <span class="text-sm">Jours</span>
@@ -56,12 +62,13 @@
             <span class="text-sm">Secondes</span>
         </div>
     </div>
-    <p id="end-message" class="hidden text-green-400 font-bold mt-4">Le projet est maintenant disponible ! 🎉</p>
+
+    <p id="end-message" class="hidden text-green-400 font-bold mt-6 text-lg">Le projet est maintenant disponible ! 🎤🔥</p>
 
     <!-- Formulaire d'inscription -->
-    <div class="mt-8">
-        <h3 class="text-lg font-semibold text-gray-100 mb-2">🔥 Reçois les infos en avant-première</h3>
-        <form id="email-form" class="flex flex-col space-y-3 w-full">
+    <div class="mt-10 w-full max-w-sm">
+        <h3 class="text-lg font-semibold text-gray-100 mb-2">🔥 Ne manque rien</h3>
+        <form id="email-form" class="flex flex-col space-y-3">
             <input type="email" id="email" class="w-full p-3 border border-white/20 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Entre ton email" required>
             <button type="submit" class="bg-blue-500 hover:bg-blue-600 transition text-white py-2 rounded-lg font-semibold">
                 S’inscrire
@@ -99,11 +106,9 @@
         updateCountdown();
     }
 
-    // Définition de la date de sortie
     const releaseDate = new Date("2025-03-15T00:00:00").getTime();
     startCountdown(releaseDate);
 
-    // Gestion du formulaire d'inscription
     document.getElementById("email-form").addEventListener("submit", function(event) {
         event.preventDefault();
         document.getElementById("success-message").classList.remove("hidden");
