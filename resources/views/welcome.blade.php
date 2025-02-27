@@ -27,7 +27,7 @@
 
 <!-- Video de fond -->
 <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
-    <source src="assets/video.mp4" type="video/mp4">
+    <source src="{{ asset('video.mp4') }}" type="video/mp4">
 </video>
 
 <!-- Conteneur principal -->
