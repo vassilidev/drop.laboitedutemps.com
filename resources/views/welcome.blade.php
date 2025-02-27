@@ -3,59 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compte à Rebours | Sorry I'm Late</title>
+    <title>Sorry I’m Late | Drop</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Dégradé d’arrière-plan dynamique */
+        body {
+            background: linear-gradient(135deg, #1E1E2E, #3A3A6D, #7158E2);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-6">
+<body class="flex flex-col items-center justify-center min-h-screen text-white p-6">
 
-<!-- Présentation du projet -->
-<div class="bg-white shadow-xl rounded-lg p-6 text-center w-full max-w-2xl mb-6">
-    <h1 class="text-3xl font-bold text-gray-800 mb-4">SORRY I’M LATE</h1>
-    <p class="text-gray-600 leading-relaxed">
-        Une maison qui réunit **design, mode et musique**.
-        Un espace où **l’art rencontre la culture**, sans barrières ni frontières.
-        Nous mettons les **artistes au cœur du projet**, célébrant leur créativité brute.
-        Invités de tous horizons, **notre ambition est de construire une identité forte**,
-        une marque qui inspire et rassemble à travers le monde.
+<!-- Conteneur principal -->
+<div class="max-w-3xl w-full bg-opacity-20 bg-white backdrop-blur-md rounded-2xl p-8 shadow-lg text-center border border-white/20">
+
+    <!-- Logo ou titre -->
+    <h1 class="text-4xl font-bold tracking-widest text-gray-100 uppercase mb-6">
+        SORRY I’M LATE
+    </h1>
+
+    <!-- Description -->
+    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+        Une maison qui fusionne **design, mode et musique**.
+        Un mouvement culturel qui réunit les **artistes de tous horizons**,
+        et qui s’affirme comme une signature intemporelle.
     </p>
-    <p class="mt-4 text-gray-700 font-semibold">🚀 **Freestyle exclusif en studio + drop capsule**</p>
-    <p class="text-gray-900 font-bold">Artiste : <span class="text-blue-500">Tweezy</span></p>
-    <p class="text-gray-900 font-bold">Drop : <span class="text-red-500">Sorry I’m Late</span></p>
-</div>
 
-<!-- Compte à Rebours -->
-<div class="bg-white shadow-xl rounded-lg p-6 text-center w-full max-w-md">
-    <h2 class="text-2xl font-bold text-gray-800 mb-2">Lancement dans :</h2>
-    <div id="countdown" class="flex justify-center space-x-4 text-2xl font-semibold text-gray-900">
-        <div class="flex flex-col items-center">
-            <span id="days" class="text-4xl text-blue-500">00</span>
-            <span class="text-sm text-gray-600">Jours</span>
+    <!-- Compte à rebours -->
+    <div id="countdown" class="grid grid-cols-4 gap-4 text-xl font-semibold">
+        <div class="flex flex-col items-center p-4 bg-white/10 rounded-lg shadow-lg">
+            <span id="days" class="text-5xl font-bold text-blue-400">00</span>
+            <span class="text-sm">Jours</span>
         </div>
-        <div class="flex flex-col items-center">
-            <span id="hours" class="text-4xl text-blue-500">00</span>
-            <span class="text-sm text-gray-600">Heures</span>
+        <div class="flex flex-col items-center p-4 bg-white/10 rounded-lg shadow-lg">
+            <span id="hours" class="text-5xl font-bold text-blue-400">00</span>
+            <span class="text-sm">Heures</span>
         </div>
-        <div class="flex flex-col items-center">
-            <span id="minutes" class="text-4xl text-blue-500">00</span>
-            <span class="text-sm text-gray-600">Minutes</span>
+        <div class="flex flex-col items-center p-4 bg-white/10 rounded-lg shadow-lg">
+            <span id="minutes" class="text-5xl font-bold text-blue-400">00</span>
+            <span class="text-sm">Minutes</span>
         </div>
-        <div class="flex flex-col items-center">
-            <span id="seconds" class="text-4xl text-blue-500">00</span>
-            <span class="text-sm text-gray-600">Secondes</span>
+        <div class="flex flex-col items-center p-4 bg-white/10 rounded-lg shadow-lg">
+            <span id="seconds" class="text-5xl font-bold text-blue-400">00</span>
+            <span class="text-sm">Secondes</span>
         </div>
     </div>
-    <p id="end-message" class="hidden text-green-600 font-bold mt-4">Le projet est maintenant disponible ! 🎉</p>
-</div>
+    <p id="end-message" class="hidden text-green-400 font-bold mt-4">Le projet est maintenant disponible ! 🎉</p>
 
-<!-- Formulaire d'inscription -->
-<div class="bg-white shadow-xl rounded-lg p-6 text-center w-full max-w-md mt-6">
-    <h3 class="text-lg font-semibold text-gray-800 mb-2">🔥 Sois le premier informé du drop</h3>
-    <p class="text-gray-600 text-sm mb-4">Reçois des infos exclusives sur la capsule & le freestyle.</p>
-    <form id="email-form" class="flex flex-col space-y-3">
-        <input type="email" id="email" class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ton adresse email" required>
-        <button type="submit" class="bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">S'inscrire</button>
-    </form>
-    <p id="success-message" class="hidden text-green-600 font-semibold mt-3">Merci, tu es inscrit ! 🎤</p>
+    <!-- Formulaire d'inscription -->
+    <div class="mt-8">
+        <h3 class="text-lg font-semibold text-gray-100 mb-2">🔥 Reçois les infos en avant-première</h3>
+        <form id="email-form" class="flex flex-col space-y-3 w-full">
+            <input type="email" id="email" class="w-full p-3 border border-white/20 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Entre ton email" required>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 transition text-white py-2 rounded-lg font-semibold">
+                S’inscrire
+            </button>
+        </form>
+        <p id="success-message" class="hidden text-green-400 font-semibold mt-3">Merci, tu es inscrit ! 🚀</p>
+    </div>
+
 </div>
 
 <script>
