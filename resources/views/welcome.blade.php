@@ -101,19 +101,19 @@
     <div id="countdown" class="countdown-container">
         <div class="countdown-item">
             <span id="days" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm block">Jours</span>
+            <span class="text-xs sm:text-sm block">J</span>
         </div>
         <div class="countdown-item">
             <span id="hours" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm block">Heures</span>
+            <span class="text-xs sm:text-sm block">H</span>
         </div>
         <div class="countdown-item">
             <span id="minutes" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm block">Minutes</span>
+            <span class="text-xs sm:text-sm block">m</span>
         </div>
         <div class="countdown-item">
             <span id="seconds" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm block">Secondes</span>
+            <span class="text-xs sm:text-sm block">s</span>
         </div>
     </div>
 
