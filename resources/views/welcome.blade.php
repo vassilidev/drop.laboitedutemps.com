@@ -48,26 +48,31 @@
             flex-wrap: nowrap;
             gap: 10px;
             width: 100%;
-            max-width: 600px;
+            max-width: 400px;
         }
 
         .countdown-item {
             background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 10px;
-            width: 65px;
+            padding: 8px;
+            border-radius: 12px;
+            width: 80px;
             text-align: center;
         }
 
         .countdown-item span {
             display: block;
+        }
+
+        .countdown-item .time {
             font-size: 24px;
             font-weight: bold;
+            padding-bottom: 2px;
         }
 
         .countdown-item .label {
-            font-size: 12px;
-            margin-top: 2px;
+            font-size: 10px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -111,19 +116,19 @@
     <!-- Compte à rebours -->
     <div id="countdown" class="countdown-container">
         <div class="countdown-item">
-            <span id="days" class="text-2xl sm:text-3xl font-bold pink-text">00</span>
+            <span id="days" class="time pink-text">00</span>
             <span class="label">Jours</span>
         </div>
         <div class="countdown-item">
-            <span id="hours" class="text-2xl sm:text-3xl font-bold pink-text">00</span>
+            <span id="hours" class="time pink-text">00</span>
             <span class="label">Heures</span>
         </div>
         <div class="countdown-item">
-            <span id="minutes" class="text-2xl sm:text-3xl font-bold pink-text">00</span>
+            <span id="minutes" class="time pink-text">00</span>
             <span class="label">Minutes</span>
         </div>
         <div class="countdown-item">
-            <span id="seconds" class="text-2xl sm:text-3xl font-bold pink-text">00</span>
+            <span id="seconds" class="time pink-text">00</span>
             <span class="label">Secondes</span>
         </div>
     </div>
