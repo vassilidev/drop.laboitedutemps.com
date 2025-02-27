@@ -13,33 +13,70 @@
             overflow: hidden;
         }
 
+        /* Vidéo toujours en fond */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
         .overlay {
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(8px);
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
         }
 
         .pink-text {
             color: #FF79C6;
         }
+
+        /* Fix pour maintenir le compteur en ligne */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            width: 70px;
+            text-align: center;
+        }
     </style>
 </head>
-<body class="relative flex items-center justify-center min-h-screen text-white">
+<body>
 
 <!-- Video de fond -->
-<video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
+<video autoplay muted loop playsinline>
     <source src="{{ asset('video.mp4') }}" type="video/mp4">
 </video>
 
 <!-- Conteneur principal -->
-<div class="overlay absolute inset-0 flex flex-col items-center justify-center text-center px-6 py-4">
+<div class="overlay">
 
     <!-- Titre du projet -->
-    <h1 class="text-4xl sm:text-5xl font-bold uppercase pink-text mb-6">
-        "Sorry I’m Late"
+    <h1 class="text-3xl sm:text-5xl font-bold uppercase pink-text mb-4">
+        « Sorry I’m Late »
     </h1>
 
     <!-- Présentation de l’artiste -->
-    <p class="text-md sm:text-lg text-gray-300 max-w-xl leading-relaxed mb-6">
+    <p class="text-sm sm:text-lg text-gray-300 max-w-xl leading-relaxed mb-4">
         Tweezy, une énergie brute, une identité sonore unique. <br>
         Entre flow tranchant et mélodies atmosphériques, <br>
         ce projet fusionne l’essence du rap et l’empreinte du style. <br>
@@ -48,7 +85,7 @@
     </p>
 
     <!-- Liens sociaux -->
-    <div class="flex space-x-4 mb-8">
+    <div class="flex space-x-4 mb-6">
         <a href="https://www.instagram.com/_tweeezy/" target="_blank">
             <img src="{{ asset('insta.svg') }}" alt="Instagram" class="w-6 sm:w-8 h-6 sm:h-8">
         </a>
@@ -60,31 +97,31 @@
         </a>
     </div>
 
-    <div id="countdown"
-         class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-lg sm:text-xl md:text-2xl font-semibold">
-        <div class="flex flex-col items-center p-3 sm:p-4 bg-white/10 rounded-lg shadow-lg">
-            <span id="days" class="text-3xl sm:text-4xl md:text-5xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm">Jours</span>
+    <!-- Compte à rebours -->
+    <div id="countdown" class="countdown-container">
+        <div class="countdown-item">
+            <span id="days" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
+            <span class="text-xs sm:text-sm block">Jours</span>
         </div>
-        <div class="flex flex-col items-center p-3 sm:p-4 bg-white/10 rounded-lg shadow-lg">
-            <span id="hours" class="text-3xl sm:text-4xl md:text-5xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm">Heures</span>
+        <div class="countdown-item">
+            <span id="hours" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
+            <span class="text-xs sm:text-sm block">Heures</span>
         </div>
-        <div class="flex flex-col items-center p-3 sm:p-4 bg-white/10 rounded-lg shadow-lg">
-            <span id="minutes" class="text-3xl sm:text-4xl md:text-5xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm">Minutes</span>
+        <div class="countdown-item">
+            <span id="minutes" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
+            <span class="text-xs sm:text-sm block">Minutes</span>
         </div>
-        <div class="flex flex-col items-center p-3 sm:p-4 bg-white/10 rounded-lg shadow-lg">
-            <span id="seconds" class="text-3xl sm:text-4xl md:text-5xl font-bold pink-text">00</span>
-            <span class="text-xs sm:text-sm">Secondes</span>
+        <div class="countdown-item">
+            <span id="seconds" class="text-2xl sm:text-4xl font-bold pink-text">00</span>
+            <span class="text-xs sm:text-sm block">Secondes</span>
         </div>
     </div>
 
-    <p id="end-message" class="hidden pink-text font-bold mt-6 text-lg">Le projet est maintenant disponible ! 🎤🔥</p>
+    <p id="end-message" class="hidden pink-text font-bold mt-4 text-lg">Le projet est maintenant disponible ! 🎤🔥</p>
 
     <!-- Formulaire d'inscription -->
-    <div class="mt-8 w-full max-w-sm">
-        <h3 class="text-md sm:text-lg font-semibold text-gray-100 mb-2">⌛️ Ne manque rien</h3>
+    <div class="mt-6 w-full max-w-sm">
+        <h3 class="text-sm sm:text-lg font-semibold text-gray-100 mb-2">⌛️ Ne manque rien</h3>
         <form id="email-form" class="flex flex-col space-y-3">
             <input type="email" id="email"
                    class="w-full p-2 sm:p-3 border border-white/20 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -128,14 +165,6 @@
 
     const releaseDate = new Date("2025-03-15T00:00:00").getTime();
     startCountdown(releaseDate);
-
-    document.getElementById("email-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        document.getElementById("success-message").classList.remove("hidden");
-        setTimeout(() => {
-            document.getElementById("success-message").classList.add("hidden");
-        }, 5000);
-    });
 </script>
 
 </body>
