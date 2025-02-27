@@ -72,7 +72,7 @@
 
     <!-- Titre du projet -->
     <h1 class="text-3xl sm:text-5xl font-bold uppercase pink-text mb-4">
-        « Sorry I’m Late »
+        "Sorry I’m Late"
     </h1>
 
     <!-- Présentation de l’artiste -->
